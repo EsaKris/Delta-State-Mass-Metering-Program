@@ -31,14 +31,15 @@
 
             <!-- Logo Section -->
             <div class="text-center mb-6">
-                <img src="https://via.placeholder.com/150" alt="Logo" class="mx-auto mb-4"> <!-- Replace with your logo URL -->
+                <img src="images/logo.png" alt="Logo" class="mx-auto mb-4" style="width: 150px; height: auto;"> <!-- Replace with your logo -->
             </div>
 
             <h2 class="text-2xl font-semibold text-blue-600 mb-4 text-center">Delta State Mass Metering Program</h2>
             <h3 class="text-xl text-center">Welcome 👋</h3>
             <p class="text-center text-gray-300 mb-8">Provide more information for your application.</p>
 
-            <form id="applicationForm" action="/submit-form" method="POST" enctype="multipart/form-data">
+            <form id="applicationForm" action="success.html" method="POST" enctype="multipart/form-data">
+                    
                 <div class="space-y-6">
 
                     <!-- Personal Information Section -->
@@ -130,11 +131,11 @@
                     <div>
                         <select id="tariffBand" name="tariffBand" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
                             <option value="">Select Tariff Band</option>
-                            <option value="band1">Band 1</option>
-                            <option value="band2">Band 2</option>
-                            <option value="band3">Band 3</option>
-                            <option value="band4">Band 4</option>
-                            <option value="band5">Band 5</option>
+                            <option value="band-a">Band A</option>
+                            <option value="band-b">Band B</option>
+                            <option value="band-c">Band C</option>
+                            <option value="band-d">Band D</option>
+                            <option value="band-e">Band E</option>
                         </select>
                     </div>
 
@@ -165,8 +166,7 @@
                         </label>
                         <span id="file-name" class="text-sm text-white"></span> <!-- Display file name after selection -->
                     </div>
-
-                    <div class="text-center mt-8">
+                 <div class="text-center mt-8">
                         <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
                             Submit
                         </button>
@@ -192,6 +192,16 @@
             const fileName = event.target.files[0]?.name;
             document.getElementById('file-name').textContent = fileName ? `Selected: ${fileName}` : '';
         });
+
+        //         document.querySelector('form').addEventListener('submit', (e) => {
+        //     const fileInput = document.getElementById('recentBill');
+        //     if (fileInput.files.length > 0) {
+        //         console.log('File selected:', fileInput.files[0].name);
+        //     } else {
+        //         console.log('No file selected. Proceeding without it.');
+        //     }
+        // });
+
 
         // Validation for Phone Number
         document.getElementById('phone').addEventListener('input', function() {
@@ -236,6 +246,20 @@
                 error.textContent = "";
             }
         });
+            document.getElementById('applicationForm').addEventListener('submit', function(e) {
+        // Prevent default form submission to handle validation
+        e.preventDefault();
+            
+        // Perform validation checks
+        if (document.getElementById('phone-error').textContent || document.getElementById('nin-error').textContent || document.getElementById('address-error').textContent || document.getElementById('occupation-error').textContent) {
+            alert('Please correct the errors before submitting.');
+        } else {
+            // Submit form if all fields are valid
+            window.location.href = 'success.html'; // Redirect to success page
+        }
+    });
+
+  
     </script>
 
 </body>
