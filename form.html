@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMMP Application Form</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Full-screen image background */
+        #image-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://your-image-url.com'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Background Image -->
+    <div id="image-background"></div>
+
+    <div class="min-h-screen flex items-center justify-center px-4">
+        <div class="bg-gray-800 bg-opacity-80 p-8 rounded-lg max-w-4xl w-full shadow-xl">
+
+            <!-- Logo Section -->
+            <div class="text-center mb-6">
+                <img src="https://via.placeholder.com/150" alt="Logo" class="mx-auto mb-4"> <!-- Replace with your logo URL -->
+            </div>
+
+            <h2 class="text-2xl font-semibold text-blue-600 mb-4 text-center">Delta State Mass Metering Program</h2>
+            <h3 class="text-xl text-center">Welcome 👋</h3>
+            <p class="text-center text-gray-300 mb-8">Provide more information for your application.</p>
+
+            <form id="applicationForm" action="/submit-form" method="POST" enctype="multipart/form-data">
+                <div class="space-y-6">
+
+                    <!-- Personal Information Section -->
+                    <div>
+                        <h3 class="font-semibold text-blue-600">Personal Information</h3>
+                        <input type="text" id="fullname" name="fullname" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Full Name" required>
+                    </div>
+
+                    <div>
+                        <input type="email" id="email" name="email" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Email Address" required>
+                    </div>
+
+                    <div>
+                        <input type="tel" id="phone" name="phone" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Phone Number" required>
+                        <small id="phone-error" class="text-red-500"></small>
+                    </div>
+
+                    <div>
+                        <input type="text" id="nin" name="nin" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="National Identity Number (NIN)" required>
+                        <small id="nin-error" class="text-red-500"></small>
+                    </div>
+
+                    <div>
+                        <input type="text" id="address" name="address" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Address" required>
+                        <small id="address-error" class="text-red-500"></small>
+                    </div>
+
+                    <div>
+                        <input type="text" id="occupation" name="occupation" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Occupation" required>
+                        <small id="occupation-error" class="text-red-500"></small>
+                    </div>
+
+                    <!-- Landlord or Tenant -->
+                    <div>
+                        <label for="type" class="text-white">Select Type</label>
+                        <select id="type" name="type" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="landlord">Landlord</option>
+                            <option value="tenant">Tenant</option>
+                        </select>
+                    </div>
+
+                    <!-- Local Government Section -->
+                    <div>
+                        <select id="localGovernment" name="localGovernment" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="">Select Local Government</option>
+                            <option value="Aniocha North">Aniocha North</option>
+                            <option value="Aniocha South">Aniocha South</option>
+                            <option value="Bomadi">Bomadi</option>
+                            <option value="Burutu">Burutu</option>
+                            <option value="Isoko North">Isoko North</option>
+                            <option value="Isoko South">Isoko South</option>
+                            <option value="Ika North East">Ika North East</option>
+                            <option value="Ika South">Ika South</option>
+                            <option value="Ndokwa East">Ndokwa East</option>
+                            <option value="Ndokwa West">Ndokwa West</option>
+                            <option value="Okpe">Okpe</option>
+                            <option value="Oshimili North">Oshimili North</option>
+                            <option value="Oshimili South">Oshimili South</option>
+                            <option value="Patani">Patani</option>
+                            <option value="Sapele">Sapele</option>
+                            <option value="Udu">Udu</option>
+                            <option value="Ughelli North">Ughelli North</option>
+                            <option value="Ughelli South">Ughelli South</option>
+                            <option value="Ukwuani">Ukwuani</option>
+                            <option value="Warri North">Warri North</option>
+                            <option value="Warri South">Warri South</option>
+                            <option value="Warri South West">Warri South West</option>
+                        </select>
+                    </div>
+
+                    <!-- Town/Village Section -->
+                    <div>
+                        <input type="text" id="townVillage" name="townVillage" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter Town / Village" required>
+                    </div>
+
+                    <div>
+                        <h3 class="font-semibold text-blue-600 mt-8">BEDC Account Information</h3>
+                        <input type="text" id="accountName" name="accountName" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Account Name" required>
+                    </div>
+
+                    <div>
+                        <input type="text" id="accountNumber" name="accountNumber" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Account Number" required>
+                    </div>
+
+                    <div>
+                        <input type="tel" id="accountPhone" name="accountPhone" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Phone Number" required>
+                    </div>
+
+                    <div>
+                        <select id="tariffBand" name="tariffBand" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="">Select Tariff Band</option>
+                            <option value="band1">Band 1</option>
+                            <option value="band2">Band 2</option>
+                            <option value="band3">Band 3</option>
+                            <option value="band4">Band 4</option>
+                            <option value="band5">Band 5</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <select id="bedcBusinessUnit" name="bedcBusinessUnit" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="">Select Your BEDC Business Unit</option>
+                            <option value="unit1">Unit 1</option>
+                            <option value="unit2">Unit 2</option>
+                            <option value="unit3">Unit 3</option>
+                            <option value="unit4">Unit 4</option>
+                            <option value="unit5">Unit 5</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <input type="text" id="accountAddress" name="accountAddress" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Account Address" required>
+                    </div>
+
+                    <div>
+                        <textarea id="additionalInfo" name="additionalInfo" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Any important information needed"></textarea>
+                    </div>
+
+                    <div class="my-4">
+                        <label for="recentBill" class="text-sm text-white">Scanned Copy of Most Recent Bill</label>
+                        <label class="bg-green-600 text-white p-3 rounded-md cursor-pointer flex items-center justify-center">
+                            <i class="fas fa-upload mr-2"></i> Upload File
+                            <input type="file" id="recentBill" name="recentBill" class="hidden" accept="image/png, image/jpeg, image/gif">
+                        </label>
+                        <span id="file-name" class="text-sm text-white"></span> <!-- Display file name after selection -->
+                    </div>
+
+                    <div class="text-center mt-8">
+                        <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Autofill the form using data stored in localStorage
+        window.onload = function() {
+            const formData = JSON.parse(localStorage.getItem('formData'));
+            if (formData) {
+                document.getElementById('fullname').value = formData.fullname || '';
+                document.getElementById('email').value = formData.email || '';
+                document.getElementById('phone').value = formData.phone || '';
+            }
+        }
+
+        // Display selected file name
+        document.getElementById('recentBill').addEventListener('change', function(event) {
+            const fileName = event.target.files[0]?.name;
+            document.getElementById('file-name').textContent = fileName ? `Selected: ${fileName}` : '';
+        });
+
+        // Validation for Phone Number
+        document.getElementById('phone').addEventListener('input', function() {
+            const phone = this.value;
+            const error = document.getElementById('phone-error');
+            if (phone.length !== 11) {
+                error.textContent = "Phone number should be exactly 11 digits.";
+            } else {
+                error.textContent = "";
+            }
+        });
+
+        // Validation for NIN
+        document.getElementById('nin').addEventListener('input', function() {
+            const nin = this.value;
+            const error = document.getElementById('nin-error');
+            if (nin.length < 10 || nin.length > 15) {
+                error.textContent = "NIN should be between 10 and 15 digits.";
+            } else {
+                error.textContent = "";
+            }
+        });
+
+        // Validation for Address
+        document.getElementById('address').addEventListener('input', function() {
+            const address = this.value;
+            const error = document.getElementById('address-error');
+            if (address.length === 0) {
+                error.textContent = "Address is required.";
+            } else {
+                error.textContent = "";
+            }
+        });
+
+        // Validation for Occupation
+        document.getElementById('occupation').addEventListener('input', function() {
+            const occupation = this.value;
+            const error = document.getElementById('occupation-error');
+            if (occupation.length === 0) {
+                error.textContent = "Occupation is required.";
+            } else {
+                error.textContent = "";
+            }
+        });
+    </script>
+
+</body>
+</html>
